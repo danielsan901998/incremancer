@@ -3766,11 +3766,11 @@ var Incremancer;
             for (let e = 0; e < this.sprites.length; e++) this.sprites[e].bomb = null, this.sprites[e].target = !1, this.sprites[e].position.set(this.graveyard.sprite.x, this.graveyard.sprite.y - this.bombHeight), this.sprites[e].state = qe.returning
         }
         addAndRemoveHarpies() {
-            if (this.sprites.length > this.model.persistentData.harpies) {
+            while (this.sprites.length > this.model.persistentData.harpies) {
                 const e = this.sprites.pop();
                 e.target = !1, e.bomb && (e.bomb.dropped = !0, e.bomb.floor = e.bomb.y + this.bombHeight), b.removeChild(e), this.discardedSprites.push(e)
             }
-            if (this.sprites.length < this.model.persistentData.harpies) {
+            while (this.sprites.length < this.model.persistentData.harpies) {
                 const e = this.discardedSprites.length > 0 ? this.discardedSprites.pop() : new je(this.textures);
                 e.position.set(this.graveyard.sprite.x, this.graveyard.sprite.y - this.bombHeight), e.zIndex = e.position.y, e.scale.set(Math.random() > .5 ? this.scaling : -1 * this.scaling, this.scaling), e.state = qe.returning, e.play(), this.sprites.push(e), b.addChild(e)
             }
