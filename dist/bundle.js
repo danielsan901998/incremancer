@@ -194,6 +194,7 @@ var Incremancer;
                     antialias: !1,
                     resizeTo: window
                 });
+                e.ticker.maxFPS = 30;
                 document.body.appendChild(e.view), PIXI.utils.isWebGLSupported() || console.error("Warning: WebGL support not detected. Game performance may be slower."),
                     function(e) {
                         c = new PIXI.Container, u = new PIXI.Container, p = new PIXI.Container, g = new PIXI.Container, g.sortableChildren = !0, b = new PIXI.Container, m = new PIXI.Container, f = PIXI.RenderTexture.create({
